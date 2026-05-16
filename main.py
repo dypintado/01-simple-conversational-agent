@@ -54,6 +54,14 @@ class MessageRequest(BaseModel):
 def root():
     return {"status": "Agent is live"}
 
+@app.get("/test-openai")
+def test_openai():
+    try:
+        result = llm.invoke("say hello")
+        return {"result": result.content}
+    except Exception as e:
+        return {"error": str(e)}
+
 @app.post("/api/chat")
 def chat(request: MessageRequest):
     response = chain_with_history.invoke(
