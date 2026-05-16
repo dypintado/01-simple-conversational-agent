@@ -54,7 +54,7 @@ class MessageRequest(BaseModel):
 def root():
     return {"status": "Agent is live"}
 
-@app.post("/chat")
+@app.post("/api/chat")
 def chat(request: MessageRequest):
     response = chain_with_history.invoke(
         {"input": request.message},
