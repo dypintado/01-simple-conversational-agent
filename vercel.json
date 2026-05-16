@@ -1,1 +1,1 @@
-{"version": 2, "builds": [{"src": "chat.html", "use": "@vercel/static"}], "routes": [{"src": "/", "dest": "chat.html"}]}
+{"version": 2, "builds": [{"src": "api/chat.py", "use": "@vercel/python"}, {"src": "chat.html", "use": "@vercel/static"}], "routes": [{"src": "/api/chat", "dest": "api/chat.py"}, {"src": "/", "dest": "chat.html"}]}
